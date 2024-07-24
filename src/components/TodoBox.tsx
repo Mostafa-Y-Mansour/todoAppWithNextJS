@@ -13,7 +13,7 @@ const TodoBox: FC<IProps> = ({ todos, setTodos }) => {
     setTodo(e.target.value);
   };
 
-  const handleSave = (): void => {
+  const handleSave = () => {
     const todoData: TodoData = {
       id: uuid(),
       text: todo,
@@ -22,7 +22,6 @@ const TodoBox: FC<IProps> = ({ todos, setTodos }) => {
     };
     // save to local storage
     setTodos((prev) => [...prev, todoData]);
-    localStorage.setItem("todos", JSON.stringify(todos));
 
     // clear input field
     setTodo("");
@@ -35,11 +34,19 @@ const TodoBox: FC<IProps> = ({ todos, setTodos }) => {
   };
 
   useEffect(() => {
-    // when mounted we check if the todo is already exists in local storage
-    if (!todos) {
-      localStorage.setItem("todos", JSON.stringify([]));
+    // when mounted for the first time we don't need to save the empty todos to the local storage
+    if (todos.length === 0) return;
+    // when todos change, we save them to local storage
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]); // Dependency on todos array
+
+  useEffect(() => {
+    // when mounted we check if the todos is already exists in local storage
+    const storedTodos = localStorage.getItem("todos");
+    if (storedTodos) {
+      setTodos(JSON.parse(storedTodos));
     }
-  }, [todos]);
+  }, []);
 
   return (
     <div className="bg-white dark:bg-dark-blue-veryDark-desaturated rounded flex justify-between">
@@ -51,7 +58,6 @@ const TodoBox: FC<IProps> = ({ todos, setTodos }) => {
         dir="auto"
         onChange={handleChange}
         onKeyDown={onEnter}
-        onBlur={() => setTodo("")}
         type="text"
         name="To-Do text"
         placeholder="Create a new todo..."

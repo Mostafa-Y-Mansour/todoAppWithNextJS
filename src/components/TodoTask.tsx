@@ -10,7 +10,9 @@ interface IProps {
 }
 
 const TodoTask: FC<IProps> = ({ todo }) => {
-  const [checked, setChecked] = useState(false);
+  console.log(todo);
+
+  const [checked, setChecked] = useState(todo.completed);
 
   // Add event handlers for edit and delete buttons here
   // Update the state of checked when the checkbox is clicked
