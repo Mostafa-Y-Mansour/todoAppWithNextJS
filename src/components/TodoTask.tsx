@@ -1,18 +1,27 @@
 "use client";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import Image from "next/image";
 import crossImage from "@/assets/images/icon-cross.svg";
 import editImage from "@/assets/images/icon-edit.svg";
 import Check from "./Check";
 
-interface IProps {
+interface IProps extends ITodosState {
   todo: TodoData;
 }
 
-const TodoTask: FC<IProps> = ({ todo }) => {
-  console.log(todo);
-
+const TodoTask: FC<IProps> = ({ todo, todos, setTodos }) => {
   const [checked, setChecked] = useState(todo.completed);
+
+  useEffect(() => {
+    const filtered = todos.filter(
+      (filteredTodo) => filteredTodo.id !== todo.id
+    );
+    setTodos(
+      [...filtered, { ...todo, completed: checked }].sort(
+        (a, b) => b.createdTime - a.createdTime
+      )
+    );
+  }, [checked]);
 
   // Add event handlers for edit and delete buttons here
   // Update the state of checked when the checkbox is clicked
@@ -24,7 +33,15 @@ const TodoTask: FC<IProps> = ({ todo }) => {
     <div className=" w-full mb-[1px] ">
       <div className="flex justify-between items-center *:hover:opacity-100">
         <Check checked={checked} setChecked={setChecked} />
-        <p className="w-10/12">{todo.text}</p>
+        <p
+          className={`w-10/12 text-xl ${
+            checked
+              ? " line-through text-light-grayishBlue-Light-XX dark:text-dark-blue-grayishBlue-dark"
+              : ""
+          }`}
+        >
+          {todo.text}
+        </p>
         <div className="flex justify-between items-center gap-2 mr-4 opacity-0 hover:opacity-100 ">
           <Image
             src={editImage}

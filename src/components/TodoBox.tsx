@@ -19,9 +19,12 @@ const TodoBox: FC<IProps> = ({ todos, setTodos }) => {
       text: todo,
       completed: false,
       createdAt: new Date(),
+      createdTime: +new Date(),
     };
     // save to local storage
-    setTodos((prev) => [...prev, todoData]);
+    setTodos((prev) =>
+      [...prev, todoData].sort((a, b) => b.createdTime - a.createdTime)
+    );
 
     // clear input field
     setTodo("");
@@ -33,20 +36,7 @@ const TodoBox: FC<IProps> = ({ todos, setTodos }) => {
     }
   };
 
-  useEffect(() => {
-    // when mounted for the first time we don't need to save the empty todos to the local storage
-    if (todos.length === 0) return;
-    // when todos change, we save them to local storage
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]); // Dependency on todos array
-
-  useEffect(() => {
-    // when mounted we check if the todos is already exists in local storage
-    const storedTodos = localStorage.getItem("todos");
-    if (storedTodos) {
-      setTodos(JSON.parse(storedTodos));
-    }
-  }, []);
+ 
 
   return (
     <div className="bg-white dark:bg-dark-blue-veryDark-desaturated rounded flex justify-between">

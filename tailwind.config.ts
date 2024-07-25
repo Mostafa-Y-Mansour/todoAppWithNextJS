@@ -18,6 +18,10 @@ const config: Config = {
       },
     },
 
+    boxShadow: {
+      "3xl": "0 15px 35px -12px var(--tw-shadow-color)",
+    },
+
     colors: {
       transparent: "transparent",
       white: "hsl(0, 0%, 100%)",

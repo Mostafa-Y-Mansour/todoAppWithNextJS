@@ -3,4 +3,7 @@ type TodoData = {
   text: string;
   completed: boolean;
   createdAt: Date;
+  createdTime: number;
 };
+
+type Action = "all" | "active" | "completed";

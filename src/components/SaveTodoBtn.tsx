@@ -28,8 +28,8 @@ const SaveTodoBtn: FC<IProps> = ({ todo, ...rest }) => {
   }
 
   return (
-    <div className="p-[2px] rounded-full bg-light-grayishBlue-Light dark:bg-dark-blue-grayishBlue-dark-XX hover:bg-gradient-linear cursor-pointer">
-      <div className="bg-white dark:bg-dark-blue-veryDark-desaturated p-3 rounded-full"></div>
+    <div className="p-[14px] relative rounded-full bg-light-grayishBlue-Light dark:bg-dark-blue-grayishBlue-dark-XX hover:bg-gradient-linear cursor-pointer">
+      <div className="bg-white dark:bg-dark-blue-veryDark-desaturated p-3  rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
     </div>
   );
 };
