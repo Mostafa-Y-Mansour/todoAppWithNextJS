@@ -32,7 +32,7 @@ const ThemeToggle: FC<IProps> = (props) => {
   }, [theme]);
 
   const ToggleSize = 30;
-  const ToggleStyle = `w-[${ToggleSize}px] h-[${ToggleSize}px] bg-cyan-400 border-2 m-2 cursor-pointer`;
+  const ToggleStyle = `w-[${ToggleSize}px] h-[${ToggleSize}px]  border-2 m-2 cursor-pointer`;
 
   return (
     <>

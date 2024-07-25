@@ -15,10 +15,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang="en">
-      <body className={josefin_Sans.className}>{children}</body>
+      <body
+        className={`${josefin_Sans.className} bg-gray dark:bg-dark-blue-veryDark`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

@@ -15,7 +15,7 @@ const Base: FC<IProps> = ({ children, className = "" }) => {
     const backgroundStyle = "w-full";
 
     return (
-      <div className="  w-full">
+      <>
         <Image
           src={bgMobileDark}
           className={`hidden dark:block  dark:sm:hidden ${backgroundStyle}`}
@@ -37,16 +37,14 @@ const Base: FC<IProps> = ({ children, className = "" }) => {
           className={`hidden sm:block dark:hidden ${backgroundStyle}`}
           alt="background image"
         />
-      </div>
+      </>
     );
   };
 
   return (
-    <div
-      className={`min-h-dvh bg-gray dark:bg-dark-blue-veryDark ${className}`}
-    >
-      {renderDarkMode()}
-      <div className="relative -top-[260px] w-full mx-auto px-4 sm:px-6 max-w-[7xl] text-light-gray ">
+    <div className={`relative top-0 min-h-dvh ${className}`}>
+      <div className="absolute w-full">{renderDarkMode()}</div>
+      <div className="absolute w-full mx-auto px-4 sm:px-6 max-w-[7xl] text-light-gray">
         {children}
       </div>
     </div>

@@ -18,7 +18,11 @@ const TodoBox: FC<IProps> = ({ todos, setTodos }) => {
       id: uuid(),
       text: todo,
       completed: false,
-      createdAt: new Date(),
+      createdAt: new Date().toLocaleDateString("en-uk", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      }),
       createdTime: +new Date(),
     };
     // save to local storage
@@ -36,10 +40,8 @@ const TodoBox: FC<IProps> = ({ todos, setTodos }) => {
     }
   };
 
- 
-
   return (
-    <div className="bg-white dark:bg-dark-blue-veryDark-desaturated rounded flex justify-between">
+    <div className="bg-white dark:bg-dark-blue-veryDark-desaturated rounded m-auto flex justify-between">
       <div className="flex items-center p-4">
         <SaveTodoBtn todo={todo} onClick={handleSave} />
       </div>

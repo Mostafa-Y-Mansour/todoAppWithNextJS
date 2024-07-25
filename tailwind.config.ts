@@ -16,45 +16,45 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-    },
 
-    boxShadow: {
-      "3xl": "0 15px 35px -12px var(--tw-shadow-color)",
-    },
-
-    colors: {
-      transparent: "transparent",
-      white: "hsl(0, 0%, 100%)",
-      gray: "hsl(0, 0%, 98%)",
-      primary: {
-        brightBlue: "hsl(220, 98%, 61%)",
+      boxShadow: {
+        "3xl": "0 15px 35px -12px var(--tw-shadow-color)",
       },
-      light: {
-        grayishBlue: {
-          Light: {
-            DEFAULT: "hsl(236, 33%, 92%)",
-            XX: "hsl(233, 11%, 84%)",
-          },
-          dark: {
-            DEFAULT: "hsl(236, 9%, 61%)",
-            XX: "hsl(235, 19%, 35%)",
-          },
+
+      colors: {
+        transparent: "transparent",
+        white: "hsl(0, 0%, 100%)",
+        gray: "hsl(0, 0%, 98%)",
+        primary: {
+          brightBlue: "hsl(220, 98%, 61%)",
         },
-      },
-      dark: {
-        blue: {
-          veryDark: {
-            DEFAULT: "hsl(235, 21%, 11%)",
-            desaturated: "hsl(235, 24%, 19%)",
-          },
+        light: {
           grayishBlue: {
-            light: {
-              DEFAULT: "hsl(234, 39%, 85%)",
-              hover: "hsl(236, 33%, 92%)",
+            Light: {
+              DEFAULT: "hsl(236, 33%, 92%)",
+              XX: "hsl(233, 11%, 84%)",
             },
             dark: {
-              DEFAULT: "hsl(233, 14%, 35%)",
-              XX: "hsl(237, 14%, 26%)",
+              DEFAULT: "hsl(236, 9%, 61%)",
+              XX: "hsl(235, 19%, 35%)",
+            },
+          },
+        },
+        dark: {
+          blue: {
+            veryDark: {
+              DEFAULT: "hsl(235, 21%, 11%)",
+              desaturated: "hsl(235, 24%, 19%)",
+            },
+            grayishBlue: {
+              light: {
+                DEFAULT: "hsl(234, 39%, 85%)",
+                hover: "hsl(236, 33%, 92%)",
+              },
+              dark: {
+                DEFAULT: "hsl(233, 14%, 35%)",
+                XX: "hsl(237, 14%, 26%)",
+              },
             },
           },
         },

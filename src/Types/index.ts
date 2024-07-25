@@ -2,7 +2,7 @@ type TodoData = {
   id: string;
   text: string;
   completed: boolean;
-  createdAt: Date;
+  createdAt: string;
   createdTime: number;
 };
 

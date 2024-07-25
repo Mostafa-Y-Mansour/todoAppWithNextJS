@@ -28,15 +28,14 @@ export default function Home() {
     <Base>
       <Container>
         <Header />
-        <div className="text-xl w-11/12 text-dark-blue-veryDark dark:text-white *:shadow-3xl *:shadow-light-grayishBlue-Light  *:dark:shadow-dark-blue-veryDark">
+        <div className="text-xl w-11/12 m-auto text-dark-blue-veryDark dark:text-white *:shadow-3xl *:shadow-light-grayishBlue-Light  *:dark:shadow-dark-blue-veryDark">
           {/* todo text input box */}
-          <div className="m-auto w-full mb-5 ">
+          <div className="m-auto w-full mb-5">
             <TodoBox todos={todos} setTodos={setTodos} />
           </div>
-          <div className="m-auto w-full rounded-md bg-white dark:bg-dark-blue-veryDark-desaturated">
-            {/* todo list and actions  */}
-            <TodoList todos={todos} setTodos={setTodos} />
-          </div>
+
+          {/* todo list and actions  */}
+          <TodoList todos={todos} setTodos={setTodos} />
         </div>
       </Container>
     </Base>
