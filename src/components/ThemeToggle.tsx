@@ -8,9 +8,17 @@ interface IProps {}
 
 const ThemeToggle: FC<IProps> = (props) => {
   // Check system theme and set initial theme state
-  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
+  const [systemTheme, setSystemTheme] = useState<"dark" | "light">("dark");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setSystemTheme(
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light"
+      );
+    }
+  }, []);
 
   const [theme, setTheme] = useState<"dark" | "light">(systemTheme);
 
