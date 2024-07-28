@@ -4,6 +4,7 @@ import Container from "@/components/Container";
 import Header from "@/components/Header";
 import TodoBox from "@/components/TodoBox";
 import TodoList from "@/components/TodoList";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -37,6 +38,17 @@ export default function Home() {
           {/* todo list and actions  */}
           <TodoList todos={todos} setTodos={setTodos} />
         </div>
+        <p className="text-center mt-5 mb-24 text-sm text-light-grayishBlue-Light-XX dark:text-light-grayishBlue-dark-XX ">
+          Built by{" "}
+          <Link
+            className="hover:text-blue-300 hover:underline"
+            href={"https://github.com/Mostafa-Y-Mansour/todoAppWithNextJS"}
+            target="_blank"
+          >
+            Mostafa Yasser Mansour
+          </Link>
+          .
+        </p>
       </Container>
     </Base>
   );

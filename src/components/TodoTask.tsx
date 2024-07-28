@@ -6,6 +6,7 @@ import editImage from "@/assets/images/icon-edit.svg";
 import Check from "./Check";
 import DeleteModal from "./modal/DeleteModal";
 import DetailedModal from "./modal/DetailedModal";
+import EditModal from "./modal/EditModal";
 
 interface IProps extends ITodosState {
   todo: TodoData;
@@ -15,6 +16,7 @@ const TodoTask: FC<IProps> = ({ todo, todos, setTodos }) => {
   const [checked, setChecked] = useState(todo.completed);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showDetailedModal, setShowDetailedModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
 
   useEffect(() => {
     const filtered = todos.filter(
@@ -25,7 +27,7 @@ const TodoTask: FC<IProps> = ({ todo, todos, setTodos }) => {
         (a, b) => b.createdTime - a.createdTime
       )
     );
-  }, [checked]);
+  }, [checked, showEditModal, showDeleteModal]);
 
   // Add event handlers for edit and delete buttons here
   // Update the state of checked when the checkbox is clicked
@@ -54,7 +56,9 @@ const TodoTask: FC<IProps> = ({ todo, todos, setTodos }) => {
             alt="edit"
             width={20}
             className="cursor-pointer"
+            onClick={() => setShowEditModal(true)}
           />
+
           <Image
             src={crossImage}
             alt="delete"
@@ -65,6 +69,14 @@ const TodoTask: FC<IProps> = ({ todo, todos, setTodos }) => {
         </div>
       </div>
       <div className="w-full pt-[1px] bg-light-grayishBlue-Light dark:bg-dark-blue-grayishBlue-dark-XX" />
+      <DetailedModal
+        todo={todo}
+        showDetailedModal={showDetailedModal}
+        setShowDetailedModal={setShowDetailedModal}
+        setShowDeleteModal={setShowDeleteModal}
+        setShowEditModal={setShowEditModal}
+        setChecked={setChecked}
+      />
       <DeleteModal
         showDeleteModal={showDeleteModal}
         setShowDeleteModal={setShowDeleteModal}
@@ -72,11 +84,12 @@ const TodoTask: FC<IProps> = ({ todo, todos, setTodos }) => {
         todos={todos}
         setTodos={setTodos}
       />
-      <DetailedModal
+      <EditModal
         todo={todo}
-        showDetailedModal={showDetailedModal}
-        setShowDetailedModal={setShowDetailedModal}
-        setChecked={setChecked}
+        todos={todos}
+        setTodos={setTodos}
+        showEditModal={showEditModal}
+        setShowEditModal={setShowEditModal}
       />
     </div>
   );

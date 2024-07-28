@@ -69,7 +69,7 @@ const TodoList: FC<IProps> = ({ todos, setTodos }) => {
         {renderList()}
         {/* todo list count and actions */}
         {/* desktop action style */}
-        <div className="mb-24 flex justify-between items-center p-4  max-[520px]:hidden mx-2 text-xs text-light-grayishBlue-Light-XX dark:text-light-grayishBlue-dark-XX">
+        <div className=" flex justify-between items-center p-4  max-[520px]:hidden mx-2 text-xs text-light-grayishBlue-Light-XX dark:text-light-grayishBlue-dark-XX">
           <span className="text-xs">
             {todos.length === 1 ? "1 item" : todos.length + " items"} left
           </span>
@@ -122,8 +122,8 @@ const TodoList: FC<IProps> = ({ todos, setTodos }) => {
         </div>
       </div>
 
-      <div className="m-auto mt-5 w-full hidden max-[520px]:block rounded-md bg-white dark:bg-dark-blue-veryDark-desaturated">
-        <div className="mb-24  w-full p-4  text-xs text-light-grayishBlue-Light-XX dark:text-light-grayishBlue-dark-XX">
+      <div className="m-auto  mt-5 w-full hidden max-[520px]:block rounded-md bg-white dark:bg-dark-blue-veryDark-desaturated">
+        <div className="  w-full p-4  text-xs ">
           <span className="flex justify-center gap-4 font-bold ">
             <button
               className={`${
