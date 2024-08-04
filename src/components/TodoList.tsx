@@ -7,6 +7,7 @@ interface IProps extends ITodosState {}
 const TodoList: FC<IProps> = ({ todos, setTodos }) => {
   const [action, setAction] = useState<Action>("all");
 
+  // render todo list
   function renderList() {
     if (!todos || !(todos.length > 0))
       return (
@@ -65,12 +66,12 @@ const TodoList: FC<IProps> = ({ todos, setTodos }) => {
 
   return (
     <>
-      <div className="m-auto w-full rounded-md bg-white dark:bg-dark-blue-veryDark-desaturated">
+      <div className="m-auto w-full rounded-md bg-white dark:bg-dark-blue-veryDark-desaturated selection:bg-transparent">
         {renderList()}
         {/* todo list count and actions */}
         {/* desktop action style */}
         <div className=" flex justify-between items-center p-4  max-[520px]:hidden mx-2 text-xs text-light-grayishBlue-Light-XX dark:text-light-grayishBlue-dark-XX">
-          <span className="text-xs">
+          <span onClick={() => {}} className="text-xs cursor-pointer ">
             {todos.length === 1 ? "1 item" : todos.length + " items"} left
           </span>
           <span className="flex gap-4 font-bold ml-10">

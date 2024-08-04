@@ -53,7 +53,7 @@ const TodoBox: FC<IProps> = ({ todos, setTodos }) => {
         type="text"
         name="To-Do text"
         placeholder="Create a new todo..."
-        className="w-11/12 mr-3 py-5 rounded-md bg-transparent border-none outline-none text-xl"
+        className="w-11/12 mr-3 py-5 rounded-md bg-transparent border-none outline-none text-xl selection:bg-light-grayishBlue-dark"
         value={todo}
       />
     </div>

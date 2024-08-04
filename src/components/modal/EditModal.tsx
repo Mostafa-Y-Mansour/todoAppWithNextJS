@@ -1,12 +1,5 @@
 "use client";
-import React, {
-  FC,
-  use,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { FC, useLayoutEffect, useRef, useState } from "react";
 import Modal from "./Modal";
 
 interface IProps extends ITodosState {
@@ -71,7 +64,7 @@ const EditModal: FC<IProps> = ({
           ref={textArea}
           dir="auto"
           placeholder="Edit you Todo..."
-          className="my-5 w-full p-2 rounded-md bg-transparent outline-none text-xl resize-none border border-light-grayishBlue-Light dark:border-dark-blue-grayishBlue-dark-XX cur"
+          className="my-5 w-full p-2 rounded-md bg-transparent outline-none text-xl resize-none border border-light-grayishBlue-Light dark:border-dark-blue-grayishBlue-dark-XX selection:bg-light-grayishBlue-dark"
         />
 
         <div className="flex gap-8 justify-end items-center">

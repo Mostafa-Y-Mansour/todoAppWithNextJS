@@ -38,7 +38,8 @@ export default function Home() {
           {/* todo list and actions  */}
           <TodoList todos={todos} setTodos={setTodos} />
         </div>
-        <p className="text-center mt-5 mb-24 text-sm text-light-grayishBlue-Light-XX dark:text-light-grayishBlue-dark-XX ">
+
+        <p className=" text-center mt-5 mb-24 text-sm text-light-grayishBlue-Light-XX dark:text-light-grayishBlue-dark-XX ">
           Built by{" "}
           <Link
             className="hover:text-blue-300 hover:underline"
